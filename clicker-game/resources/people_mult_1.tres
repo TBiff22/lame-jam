@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="pop_up_resource" format=3 uid="uid://b2shpql4ql24o"]
+
+[ext_resource type="Script" uid="uid://bqq2bssueq0ar" path="res://resources/pop_up.gd" id="1_rpv8b"]
+
+[resource]
+script = ExtResource("1_rpv8b")
+name = "more_people"
+people_mult = 3
+help = true
+metadata/_custom_type_script = "uid://bqq2bssueq0ar"

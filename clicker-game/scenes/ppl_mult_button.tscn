@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://86mrmu83fjbl"]
+
+[ext_resource type="Texture2D" uid="uid://8acwpygbxkpf" path="res://assets/Screenshot 2026-08-09 at 4.31.36 PM.png" id="1_ax20b"]
+[ext_resource type="Script" uid="uid://c1gxyg2m7r8ir" path="res://texture_button.gd" id="1_oln8o"]
+[ext_resource type="Resource" uid="uid://b2shpql4ql24o" path="res://resources/people_mult_1.tres" id="2_ax20b"]
+
+[node name="ppl_mult_button" type="Node2D" unique_id=933425099]
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=975989635]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_ax20b")
+script = ExtResource("1_oln8o")
+resource = ExtResource("2_ax20b")
+
+[node name="Timer" type="Timer" parent="." unique_id=350838901]
+wait_time = 5.0
+autostart = true
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="timeout" from="Timer" to="TextureButton" method="_on_timer_timeout"]

@@ -10,5 +10,4 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
-		var collider = collision_info.get_collider_id()
 		velocity = velocity.bounce(collision_info.get_normal())

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="pop_up_resource" format=3 uid="uid://cgjlooa1pobhk"]
+
+[ext_resource type="Script" uid="uid://bqq2bssueq0ar" path="res://resources/pop_up.gd" id="1_sepl7"]
+
+[resource]
+script = ExtResource("1_sepl7")
+name = "timer_ext"
+time_change = 10
+people_mult = 1
+help = true
+metadata/_custom_type_script = "uid://bqq2bssueq0ar"
