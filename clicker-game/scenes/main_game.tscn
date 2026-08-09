@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://cfvxqk3hnwga6"]
+
+[ext_resource type="Script" uid="uid://dc4xiy7dfiwl1" path="res://scripts/manager.gd" id="1_d2op2"]
+[ext_resource type="Script" uid="uid://c35sjfm641e5f" path="res://scripts/spawner_area.gd" id="2_0rdsr"]
+[ext_resource type="PackedScene" uid="uid://dhal8xq1xgprh" path="res://scenes/people_scene.tscn" id="3_ipu61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oeqib"]
+size = Vector2(779, 542)
+
+[sub_resource type="Animation" id="Animation_ygxny"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wi4c7"]
+resource_name = "level_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_d2op2"]
+resource_name = "level_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.25, 0.25)]
+}
+
+[sub_resource type="Animation" id="Animation_0rdsr"]
+resource_name = "level_4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.125, 0.125)]
+}
+
+[sub_resource type="Animation" id="Animation_ipu61"]
+resource_name = "level_5"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.063, 0.063)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70vka"]
+_data = {
+&"RESET": SubResource("Animation_ygxny"),
+&"level_2": SubResource("Animation_wi4c7"),
+&"level_3": SubResource("Animation_d2op2"),
+&"level_4": SubResource("Animation_0rdsr"),
+&"level_5": SubResource("Animation_ipu61")
+}
+
+[node name="main game" type="Node2D" unique_id=2145130559]
+
+[node name="manager" type="Node" parent="." unique_id=1559895150]
+script = ExtResource("1_d2op2")
+
+[node name="spawner" type="Button" parent="manager" unique_id=699252472]
+offset_left = 39.0
+offset_top = -166.0
+offset_right = 336.0
+offset_bottom = -104.0
+text = "Click for Audience!"
+
+[node name="Game time" type="Timer" parent="manager" unique_id=29590743]
+wait_time = 120.0
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=303247339]
+
+[node name="spawner area" type="Area2D" parent="." unique_id=661881230]
+script = ExtResource("2_0rdsr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawner area" unique_id=580918084]
+position = Vector2(189.5, 58)
+shape = SubResource("RectangleShape2D_oeqib")
+
+[node name="Polygon2D" type="Polygon2D" parent="spawner area" unique_id=371260214]
+position = Vector2(409.448, -10)
+scale = Vector2(4.2322774, 4.2343745)
+polygon = PackedVector2Array(-144, -48, -51.49533, -48, 40, -48, 40, 80, -144, 80)
+uv = PackedVector2Array(-136, -48, 40, -48, 40, 80, -144, 80)
+
+[node name="people scene" parent="." unique_id=193972727 instance=ExtResource("3_ipu61")]
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="people scene" unique_id=1627097276]
+libraries/ = SubResource("AnimationLibrary_70vka")
+
+[node name="timetext" type="RichTextLabel" parent="." unique_id=2013366521]
+offset_left = -43.0
+offset_top = -294.0
+offset_right = 42.0
+offset_bottom = -254.0
+text = "2:00"
+
+[connection signal="pressed" from="manager/spawner" to="manager" method="_on_spawner_pressed"]
+[connection signal="timeout" from="manager/Game time" to="manager" method="_on_game_time_timeout"]
+[connection signal="mouse_entered" from="spawner area" to="manager" method="_on_spawner_area_mouse_entered"]
+[connection signal="mouse_exited" from="spawner area" to="manager" method="_on_spawner_area_mouse_exited"]
