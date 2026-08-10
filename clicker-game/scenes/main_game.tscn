@@ -104,8 +104,11 @@ offset_bottom = -104.0
 text = "Click for Audience!"
 
 [node name="Game time" type="Timer" parent="manager" unique_id=29590743]
-wait_time = 120.0
+wait_time = 60.0
 autostart = true
+
+[node name="button_spawner" type="Timer" parent="manager" unique_id=1081731069]
+wait_time = 7.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=303247339]
 
@@ -128,13 +131,26 @@ uv = PackedVector2Array(-136, -48, 40, -48, 40, 80, -144, 80)
 libraries/ = SubResource("AnimationLibrary_70vka")
 
 [node name="timetext" type="RichTextLabel" parent="." unique_id=2013366521]
-offset_left = -43.0
-offset_top = -294.0
-offset_right = 42.0
-offset_bottom = -254.0
+offset_left = 76.0
+offset_top = -314.0
+offset_right = 387.0
+offset_bottom = -223.0
+theme_override_font_sizes/normal_font_size = 32
 text = "2:00"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="audience count" type="RichTextLabel" parent="." unique_id=2118153603]
+offset_left = -567.0
+offset_top = -133.0
+offset_right = -206.0
+offset_bottom = -78.0
+theme_override_font_sizes/normal_font_size = 32
+text = "0"
+scroll_active = false
 
 [connection signal="pressed" from="manager/spawner" to="manager" method="_on_spawner_pressed"]
 [connection signal="timeout" from="manager/Game time" to="manager" method="_on_game_time_timeout"]
+[connection signal="timeout" from="manager/button_spawner" to="manager" method="_on_button_spawner_timeout"]
 [connection signal="mouse_entered" from="spawner area" to="manager" method="_on_spawner_area_mouse_entered"]
 [connection signal="mouse_exited" from="spawner area" to="manager" method="_on_spawner_area_mouse_exited"]

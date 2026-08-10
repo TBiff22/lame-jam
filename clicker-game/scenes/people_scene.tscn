@@ -183,10 +183,3 @@ shape = SubResource("RectangleShape2D_oeqib")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2008867122]
 libraries/ = SubResource("AnimationLibrary_8movl")
-
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1662005445]
-position = Vector2(1102, 252)
-scale = Vector2(8.25, 8.875)
-color = Color(0, 1, 1, 1)
-polygon = PackedVector2Array(-152, -32, -128, -32, -128, -24, -136, -24)
-uv = PackedVector2Array(-152, -32, -128, -32, -128, -24, -136, -24)
