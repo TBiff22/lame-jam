@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://beqj7labxfimi"]
+
+[ext_resource type="Script" uid="uid://dyabxfvc11wot" path="res://scenes/audience.gd" id="1_qr0s0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oeqib"]
+radius = 32.646156
+
+[node name="audience" type="CharacterBody2D" unique_id=1036961412]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_qr0s0")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=824614943]
+position = Vector2(-1055.2727, -539.6)
+scale = Vector2(1.0227273, 1.2250004)
+color = Color(1, 0.32941177, 1, 1)
+polygon = PackedVector2Array(-56, -40, -48, -56, -64, -64, -96, -64, -112, -56, -96, -40, -96, -40, -120, -24, -104, -16, -96, 16, -80, 0, -56, 16, -56, -16, -32, -16, -48, -32)
+uv = PackedVector2Array(-56, -40, -48, -56, -64, -64, -96, -64, -112, -56, -96, -40, -96, -40, -120, -24, -104, -16, -96, 16, -80, 0, -56, 16, -56, -16, -32, -16, -56, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1983275034]
+z_index = 4
+position = Vector2(-1134.2727, -571.6)
+shape = SubResource("CircleShape2D_oeqib")
